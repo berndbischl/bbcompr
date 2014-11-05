@@ -11,6 +11,13 @@ void c_bbcompr_init() {
 /* history: Setting this value to zero disables the history, any other value enables the history (the default). Enabling the history has the effect that each single function evaluation is logged to local files. This means that this information is available even after a program crash or power outage, possibly allowing an implementation to recover gracefully and continue the optimization run. The downside is that the files may grow as large as 30 GB, which may be an issue in some restricted environments. Also, the history information may not be of value to all optimizers. This is why it can be turned off. */
 /* logfilepath: This path is prepended to file names of log files. This gives the user control over where to store these files. The default value is ".", referring to the current directory. */
 /* The function returns 0 on error. */
+void c_bbcompr_configure(SEXP s_history, SEXP s_logfilepath) {
+  int history = asInteger(s_history);
+  UNPACK_STRING(s_logfilepath, logfilepath)
+  int code = configure(history, logfilepath);
+  HANDLE_ERROR_INT(code, 0);
+}
+
 
 /* int login(const char* username, const char* password); */
 /* Login to the system. This call results in communication with the competition server. */

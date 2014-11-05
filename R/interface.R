@@ -1,3 +1,29 @@
+#' @title Set global configuration options.
+#'
+#' @description
+#' This call is optional, however, it can only occur before login.
+#'
+#' @param history [\code{logical(1)}]\cr
+#'   Enable history? Enabling the history has the effect that each single function evaluation
+#'   is logged to local files. This means that this information is available even after
+#'   a program crash or power outage, possibly allowing an implementation to recover gracefully
+#'   and continue the optimization run. The downside is that the files may grow as large as 30 GB,
+#'   which may be an issue in some restricted environments. Also, the history information may not
+#'   be of value to all optimizers. This is why it can be turned off.
+#' @param logfilepath [\code{character(1)}]\cr
+#'   This path is prepended to file names of log files.
+#'   This gives the user control over where to store these files.
+#' @return [\code{invisible(NULL)}].
+#' @useDynLib bbcompr c_bbcompr_configure
+#' @export
+configureBBComp = function(history, logfilepath) {
+  assertFlag(history)
+  assertDirectory(logfilepath, access = "w")
+  messagef("Configuring bbcomp with history = %s\nlogfilepath: %s", history, logfilepath)
+  .Call(c_bbcompr_configure, as.integer(history), logfilepath)
+  invisible(NULL)
+}
+
 #' @title Login on server.
 #'
 #' @description

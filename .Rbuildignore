@@ -5,6 +5,7 @@ src/*.so
 .gitignore
 .Rproj.user
 .travis.yml
+logfile_.*.log
 README.md
 test_all.R
 test_src.R
