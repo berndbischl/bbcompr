@@ -1,0 +1,23 @@
+library(methods)
+library(devtools)
+library(roxygen2)
+
+roxygenize()
+load_all()
+
+# login("demoaccount", "demopassword")
+n = getNumberOfTracks()
+messagef("nr of tracks: %i", n)
+s = getTrackName(0)
+print(s)
+setTrack("trial")
+m = getNumberOfProblems()
+messagef("nr of problems: %i", m)
+# setProblem(0)
+# d = dimension()
+# print(d)
+# b = budget()
+# print(b)
+evalPoint(c(1,1))
+
+# print(z)
