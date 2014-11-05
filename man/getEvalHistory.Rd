@@ -6,13 +6,14 @@
 getEvalHistory(indices)
 }
 \arguments{
-\item{indices}{[\code{integer}]\cr
+\item{indices}{[\code{integer(n)}]\cr
 Time indices of the evaluations. If T queries to evaluate were already made then these
 can be any number in the range 0 to T-1.
 NOTE THAT THEREFORE AN INDEX IS ZERO-BASED UNLIKE USUALLY IN R!}
 }
 \value{
-[\code{numeric(1)}]. Objective value at \code{point}.
+[\code{matrix(n, d+1)}]. Matrix of evaluations. Each row is one point plus its
+  objective value in the last column.
 }
 \description{
 Recover a previous evaluation from the log file.

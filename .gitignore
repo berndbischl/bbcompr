@@ -1,9 +1,8 @@
-BBmisc.Rcheck
-BBmisc_*.tar.gz
+bbcompr.Rcheck
+bbcompr_*.tar.gz
 .Rproj.user
 *.Rproj
 .Rhistory
-html
 src/*.so
 src/*.o
 logfile_*.log
