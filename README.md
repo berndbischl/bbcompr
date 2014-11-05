@@ -1,0 +1,4 @@
+bbcompr
+=======
+
+Interface to bbcomp
