@@ -1,0 +1,9 @@
+BBmisc.Rcheck
+BBmisc_*.tar.gz
+.Rproj.user
+*.Rproj
+.Rhistory
+html
+src/*.so
+src/*.o
+logfile_*.log
