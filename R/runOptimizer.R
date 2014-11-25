@@ -1,3 +1,5 @@
+# FIXME: return value of optfun can be disregarded right? the server stores evals anyway?
+
 #' Runs an optimizer on a problem.
 #'
 #' @description
@@ -10,8 +12,14 @@
 #'   Selected problem.
 #'   Default is to use the last selected one.
 #' @param optfun [\code{fun(dimension, budget, obj, start)}]\cr
-#'   Wrapper to start the optimizer.
-#' @return [\code{invisible(NULL)}].
+#'   Wrapper to start the optimizer. The following information is passed:
+#'   \begin{itemize}
+#'   \item{dimension [\code{integer(1)}]}{Problem dimension}
+#'   \item{budget [\code{integer(1)}]}{Problem budget}
+#'   \item{obj [\code{function(x)}]}{Problem objective function}
+#'   \item{start [\code{}]}{Problem budget. Your optimier can disregard this. Simply comstructed for conmveince.}
+#'   \end{itemize}
+#' @return Arbitrary result of \code{optfun} call, which is not used in any way.
 #' @export
 runOptimizer = function(track = NULL, problem = NULL, optfun) {
   if (!is.null(track))
